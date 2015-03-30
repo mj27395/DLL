@@ -15,4 +15,10 @@ public class DoubleLinkedNode<T> {
 		last=lst;
 		this.data=data;
 	}
+	public DoubleLinkedNode<T> previous(){
+		return previous;
+	}
+	public DoubleLinkedNode<T> last(){
+		return last;
+	}
 }
