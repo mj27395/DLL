@@ -3,22 +3,22 @@ package IIS.DoubleLinkedList;
 public class DoubleLinkedNode<T> {
 	T data;
 	DoubleLinkedNode<T> previous;
-	DoubleLinkedNode<T> last;
+	DoubleLinkedNode<T> next;
 	
 	public DoubleLinkedNode (T data){
 		this.data=data;
 		previous=null;
-		last=null;
+		next=null;
 	}
-	public DoubleLinkedNode (DoubleLinkedNode<T> prev, DoubleLinkedNode<T> lst, T data){
+	public DoubleLinkedNode (DoubleLinkedNode<T> prev, DoubleLinkedNode<T> next, T data){
 		previous=prev;
-		last=lst;
+		this.next=next;
 		this.data=data;
 	}
 	public DoubleLinkedNode<T> previous(){
 		return previous;
 	}
-	public DoubleLinkedNode<T> last(){
-		return last;
+	public DoubleLinkedNode<T> next(){
+		return next;
 	}
 }
