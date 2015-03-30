@@ -9,4 +9,12 @@ public class DoubleLinkedList<E> {
 		firstNode=node;
 		lastNode=node;
 	}
+	public DoubleLinkedList(DoubleLinkedNode<E> first, DoubleLinkedNode<E> last){
+		firstNode=first;
+		lastNode=last;
+		firstNode.previous=null;
+		firstNode.last=last;
+		lastNode.previous=first;
+		lastNode.last=null;
+	}
 }
