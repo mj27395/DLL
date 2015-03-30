@@ -10,4 +10,9 @@ public class DoubleLinkedNode<T> {
 		previous=null;
 		last=null;
 	}
+	public DoubleLinkedNode (DoubleLinkedNode<T> prev, DoubleLinkedNode<T> lst, T data){
+		previous=prev;
+		last=lst;
+		this.data=data;
+	}
 }
