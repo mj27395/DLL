@@ -11,7 +11,7 @@ public class App {
 
 		DoubleLinkedList<Integer> list = new DoubleLinkedList<Integer>(n1, n2);
 
-		System.out.print("\n First traverse: \n");
+		//System.out.print("\n First traverse: \n");
 		list.forwardsTraverse();
 		list.BackwardsTraverse();
 
@@ -21,11 +21,11 @@ public class App {
 		DoubleLinkedNode<Integer> new_node_2 = new DoubleLinkedNode<Integer>(6);
 		list.insertAfter(new_node_1, new_node_2);
 
-		System.out.print("\n Second traverse: \n");
+		//System.out.print("\n Second traverse: \n");
 		list.BackwardsTraverse();
 		list.forwardsTraverse();
 
-		System.out.print("\n Last traverse: \n");
+		//System.out.print("\n Last traverse: \n");
 		list.remove(new_node_2);
 
 		list.BackwardsTraverse();
