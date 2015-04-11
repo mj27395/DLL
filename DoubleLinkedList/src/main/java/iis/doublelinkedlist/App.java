@@ -8,7 +8,7 @@ public class App {
     DoubleLinkedList<Integer> list = new DoubleLinkedList<Integer>(n1, n2);
 
     list.forwardsTraverse();
-    list.BackwardsTraverse();
+    list.backwardsTraverse();
 
     DoubleLinkedNode<Integer> newNode1 = new DoubleLinkedNode<Integer>(5);
     list.insertAfter(n2, newNode1);
@@ -16,12 +16,12 @@ public class App {
     DoubleLinkedNode<Integer> newNode2 = new DoubleLinkedNode<Integer>(6);
     list.insertAfter(newNode1, newNode2);
 
-    list.BackwardsTraverse();
+    list.backwardsTraverse();
     list.forwardsTraverse();
 
     list.remove(newNode2);
 
-    list.BackwardsTraverse();
+    list.backwardsTraverse();
     list.forwardsTraverse();
   }
 }

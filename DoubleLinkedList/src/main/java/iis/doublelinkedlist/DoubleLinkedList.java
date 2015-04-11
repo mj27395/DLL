@@ -101,21 +101,24 @@ public class DoubleLinkedList<E> {
 
     System.out.print("Forwards: ");
     while (node != null) {
-      System.out.print(node.data + " ");
+      mostrarNodo(node.data);
       node = node.next;
     }
     System.out.println("\n");
   }
 
-  public void BackwardsTraverse() {
+  public void backwardsTraverse() {
     DoubleLinkedNode<E> node = lastNode;
 
     System.out.print("Backwards: ");
     while (node != null) {
-      System.out.print(node.data + " ");
+      mostrarNodo(node.data);
       node = node.previous;
     }
     System.out.println("\n");
+  }
+  private void mostrarNodo (E nodeData){
+    System.out.print(nodeData + " ");
   }
 
 }
