@@ -1,4 +1,4 @@
-package iis.doubleLinkedList;
+package iis.doublelinkedlist;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
