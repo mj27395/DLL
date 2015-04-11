@@ -76,7 +76,7 @@ public class DoubleLinkedList<E> {
 
     return nodeIsInTheList;
   }
-  private void showException(String msg){
+  private void showException (String msg){
     throw new RuntimeException (msg);
   }
 
