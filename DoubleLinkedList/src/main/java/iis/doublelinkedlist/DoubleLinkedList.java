@@ -76,10 +76,13 @@ public class DoubleLinkedList<E> {
 
     return nodeIsInTheList;
   }
+  private void showException(String msg){
+    throw new RuntimeException (msg);
+  }
 
   public void remove(DoubleLinkedNode<E> node) {
     if (!isNodeInTheList(node)) {
-      throw new RuntimeException("ERROR: The node is not in the list.");
+      showException("ERROR: The node is not in the list.");
     } else {
       if (node.previous == null) {
         firstNode = node.next;
@@ -99,25 +102,23 @@ public class DoubleLinkedList<E> {
   public void forwardsTraverse() {
     DoubleLinkedNode<E> node = firstNode;
 
-    System.out.print("Forwards: ");
+    System.out.print("\n" + "Forwards: ");
     while (node != null) {
-      mostrarNodo(node.data);
+      showNode(node.data);
       node = node.next;
     }
-    System.out.println("\n");
   }
 
   public void backwardsTraverse() {
     DoubleLinkedNode<E> node = lastNode;
 
-    System.out.print("Backwards: ");
+    System.out.print("\n" + "Backwards: ");
     while (node != null) {
-      mostrarNodo(node.data);
+      showNode(node.data);
       node = node.previous;
     }
-    System.out.println("\n");
   }
-  private void mostrarNodo (E nodeData){
+  private void showNode (E nodeData){
     System.out.print(nodeData + " ");
   }
 
