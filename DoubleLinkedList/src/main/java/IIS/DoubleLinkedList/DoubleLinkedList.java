@@ -93,7 +93,7 @@ public class DoubleLinkedList<E> {
 		
 		System.out.print("Forwards: ");
 		while(node!=null){
-			System.out.print(node.data + " ");
+			node.data.toString();
 			node=node.next;
 		}
 		System.out.println("\n");
@@ -103,9 +103,10 @@ public class DoubleLinkedList<E> {
 		
 		System.out.print("Backwards: ");
 		while(node!=null){
-			System.out.print(node.data + " ");
+			node.data.toString();
 			node=node.previous;
 		}
 		System.out.println("\n");
 	}
+
 }
