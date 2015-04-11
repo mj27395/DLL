@@ -1,4 +1,4 @@
-package iis.doubleLinkedList;
+package iis.doublelinkedlist;
 
 public class DoubleLinkedList<E> {
   DoubleLinkedNode<E> firstNode, lastNode;

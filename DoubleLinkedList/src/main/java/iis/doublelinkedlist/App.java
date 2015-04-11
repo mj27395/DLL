@@ -1,4 +1,4 @@
-package iis.DoubleLinkedList;
+package iis.doublelinkedlist;
 
 public class App {
   public static void main(String[] args) {
