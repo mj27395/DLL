@@ -15,18 +15,18 @@ public class App {
 		list.forwardsTraverse();
 		list.BackwardsTraverse();
 
-		DoubleLinkedNode<Integer> new_node_1 = new DoubleLinkedNode<Integer>(5);
-		list.insertAfter(n2, new_node_1);
+		DoubleLinkedNode<Integer> newNode1 = new DoubleLinkedNode<Integer>(5);
+		list.insertAfter(n2, newNode1);
 
-		DoubleLinkedNode<Integer> new_node_2 = new DoubleLinkedNode<Integer>(6);
-		list.insertAfter(new_node_1, new_node_2);
+		DoubleLinkedNode<Integer> newNode2 = new DoubleLinkedNode<Integer>(6);
+		list.insertAfter(newNode1, newNode2);
 
 		//System.out.print("\n Second traverse: \n");
 		list.BackwardsTraverse();
 		list.forwardsTraverse();
 
 		//System.out.print("\n Last traverse: \n");
-		list.remove(new_node_2);
+		list.remove(newNode2);
 
 		list.BackwardsTraverse();
 		list.forwardsTraverse();
