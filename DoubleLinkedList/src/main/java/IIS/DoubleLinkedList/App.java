@@ -1,9 +1,5 @@
 package IIS.DoubleLinkedList;
 
-/**
- * Hello world!
- *
- */
 public class App {
 	public static void main(String[] args) {
 		DoubleLinkedNode<Integer> n1 = new DoubleLinkedNode<Integer>(3);

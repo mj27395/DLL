@@ -1,7 +1,7 @@
 package IIS.DoubleLinkedList;
 
 public class DoubleLinkedNode<T> {
-	T data;
+    T data;
 	DoubleLinkedNode<T> previous;
 	DoubleLinkedNode<T> next;
 	
