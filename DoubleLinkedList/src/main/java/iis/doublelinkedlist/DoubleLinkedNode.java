@@ -1,27 +1,51 @@
 package iis.doublelinkedlist;
 
 public class DoubleLinkedNode<T> {
-  T data;
+  private T data;
   DoubleLinkedNode<T> previous;
   DoubleLinkedNode<T> next;
 
   public DoubleLinkedNode(T data) {
-    this.data = data;
-    previous = null;
-    next = null;
+    this.setData(data);
+    setPrevious(null);
+    setNext(null);
   }
 
   public DoubleLinkedNode(DoubleLinkedNode<T> prev, DoubleLinkedNode<T> next, T data) {
-    previous = prev;
-    this.next = next;
-    this.data = data;
+    setPrevious(prev);
+    this.setNext(next);
+    this.setData(data);
   }
 
   public DoubleLinkedNode<T> previous() {
-    return previous;
+    return getPrevious();
   }
 
   public DoubleLinkedNode<T> next() {
+    return getNext();
+  }
+
+  public DoubleLinkedNode<T> getNext() {
     return next;
+  }
+
+  public void setNext(DoubleLinkedNode<T> next) {
+    this.next = next;
+  }
+
+  public DoubleLinkedNode<T> getPrevious() {
+    return previous;
+  }
+
+  public void setPrevious(DoubleLinkedNode<T> previous) {
+    this.previous = previous;
+  }
+
+  public T getData() {
+    return data;
+  }
+
+  public void setData(T data) {
+    this.data = data;
   }
 }

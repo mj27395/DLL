@@ -1,11 +1,15 @@
 package iis.doublelinkedlist;
 
 public class DoubleLinkedList<E> {
-  DoubleLinkedNode<E> firstNode, lastNode;
+  private DoubleLinkedNode<E> firstNode, lastNode, node;
+
+  private DoubleLinkedNode<E> next= node.next();
+  private DoubleLinkedNode<E> previous = node.previous();
+  
 
   public DoubleLinkedList(DoubleLinkedNode<E> node) {
-    node.next = null;
-    node.previous = null;
+    node.setNext(null);
+    node.setPrevious(null);
     firstNode = node;
     lastNode = node;
   }
@@ -13,41 +17,42 @@ public class DoubleLinkedList<E> {
   public DoubleLinkedList(DoubleLinkedNode<E> first, DoubleLinkedNode<E> last) {
     firstNode = first;
     lastNode = last;
-    firstNode.previous = null;
-    firstNode.next = last;
-    lastNode.previous = first;
-    lastNode.next = null;
+    firstNode.setPrevious(null);
+    firstNode.setNext(last);
+    lastNode.setPrevious(first);
+    lastNode.setNext(null);
   }
+  
 
   public void insertBefore(DoubleLinkedNode<E> node, DoubleLinkedNode<E> nodeToInsert) {
-    nodeToInsert.previous = node.previous;
-    nodeToInsert.next = node;
+    nodeToInsert.setPrevious(node.getPrevious());
+    nodeToInsert.setNext(node);
 
-    if (node.previous == null) {
+    if (node.getPrevious() == null) {
       firstNode = nodeToInsert;
     } else {
-      node.previous.next = nodeToInsert;
+      node.getPrevious().next = nodeToInsert;
     }
-    node.previous = nodeToInsert;
+    node.setPrevious(nodeToInsert);
   }
 
   public void insertAfter(DoubleLinkedNode<E> node, DoubleLinkedNode<E> nodeToInsert) {
-    nodeToInsert.previous = node;
-    nodeToInsert.next = node.next;
+    nodeToInsert.setPrevious(node);
+    nodeToInsert.setNext(node.getNext());
 
-    if (node.next == null) {
+    if (node.getNext() == null) {
       lastNode = nodeToInsert;
     } else {
-      node.next.previous = nodeToInsert;
+      node.getNext().setPrevious(nodeToInsert);
     }
 
-    node.next = nodeToInsert;
+    node.setNext(nodeToInsert);
   }
 
   public void insertBeginning(DoubleLinkedNode<E> nodeToInsert) {
     if (firstNode == null) {
-      nodeToInsert.previous = null;
-      nodeToInsert.next = null;
+      nodeToInsert.setPrevious(null);
+      nodeToInsert.setNext(null);
       firstNode = nodeToInsert;
       lastNode = nodeToInsert;
     } else {
@@ -71,29 +76,30 @@ public class DoubleLinkedList<E> {
       if (n == node) {
         nodeIsInTheList = true;
       }
-      n = n.next;
+      n = n.getNext();
     }
 
     return nodeIsInTheList;
   }
-  private void showException (String msg){
-    throw new RuntimeException (msg);
+
+  private void showException(String msg) {
+    throw new RuntimeException(msg);
   }
 
   public void remove(DoubleLinkedNode<E> node) {
     if (!isNodeInTheList(node)) {
       showException("ERROR: The node is not in the list.");
     } else {
-      if (node.previous == null) {
-        firstNode = node.next;
+      if (node.getPrevious() == null) {
+        firstNode = node.getNext();
       } else {
-        node.previous.next = node.next;
+        node.getPrevious().next = node.getNext();
       }
 
-      if (node.next == null) {
-        lastNode = node.previous;
+      if (node.getNext() == null) {
+        lastNode = node.getPrevious();
       } else {
-        node.next.previous = node.previous;
+        node.getNext().setPrevious(node.getPrevious());
       }
     }
 
@@ -104,8 +110,8 @@ public class DoubleLinkedList<E> {
 
     System.out.print("\n" + "Forwards: ");
     while (node != null) {
-      showNode(node.data);
-      node = node.next;
+      showNode(node.getData());
+      node = node.getNext();
     }
   }
 
@@ -114,11 +120,12 @@ public class DoubleLinkedList<E> {
 
     System.out.print("\n" + "Backwards: ");
     while (node != null) {
-      showNode(node.data);
-      node = node.previous;
+      showNode(node.getData());
+      node = node.getPrevious();
     }
   }
-  private void showNode (E nodeData){
+
+  private void showNode(E nodeData) {
     System.out.print(nodeData + " ");
   }
 
