@@ -3,8 +3,8 @@ package iis.doublelinkedlist;
 public class DoubleLinkedList<E> {
   private DoubleLinkedNode<E> firstNode, lastNode, node;
 
-  private DoubleLinkedNode<E> next= node.next();
-  private DoubleLinkedNode<E> previous = node.previous();
+  private DoubleLinkedNode<E> next= node.getNext();
+  private DoubleLinkedNode<E> previous = node.getPrevious();
   
 
   public DoubleLinkedList(DoubleLinkedNode<E> node) {
@@ -38,12 +38,12 @@ public class DoubleLinkedList<E> {
 
   public void insertAfter(DoubleLinkedNode<E> node, DoubleLinkedNode<E> nodeToInsert) {
     nodeToInsert.setPrevious(node);
-    nodeToInsert.setNext(node.getNext());
+    nodeToInsert.setNext(node.next);
 
     if (node.getNext() == null) {
       lastNode = nodeToInsert;
     } else {
-      node.getNext().setPrevious(nodeToInsert);
+      node.next.setPrevious(nodeToInsert);
     }
 
     node.setNext(nodeToInsert);

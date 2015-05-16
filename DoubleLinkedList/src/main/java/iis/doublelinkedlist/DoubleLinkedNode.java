@@ -2,8 +2,8 @@ package iis.doublelinkedlist;
 
 public class DoubleLinkedNode<T> {
   private T data;
-  DoubleLinkedNode<T> previous;
-  DoubleLinkedNode<T> next;
+  protected DoubleLinkedNode<T> previous;
+  protected DoubleLinkedNode<T> next;
 
   public DoubleLinkedNode(T data) {
     this.setData(data);
@@ -15,14 +15,6 @@ public class DoubleLinkedNode<T> {
     setPrevious(prev);
     this.setNext(next);
     this.setData(data);
-  }
-
-  public DoubleLinkedNode<T> previous() {
-    return getPrevious();
-  }
-
-  public DoubleLinkedNode<T> next() {
-    return getNext();
   }
 
   public DoubleLinkedNode<T> getNext() {
