@@ -7,17 +7,6 @@ import org.junit.Test;
 public class DoubleLinkedListTest {
 	private DoubleLinkedList<Integer> list;
 
-	private int listSize() {
-		int cont = 0;
-		DoubleLinkedNode<Integer> aux = list.getFirstNode();
-
-		while (aux != null) {
-			cont++;
-			aux = aux.next;
-		}
-		return cont;
-	}
-
 	@Test
 	public void createNodeElem() {
 		int expected = 8;
@@ -84,7 +73,7 @@ public class DoubleLinkedListTest {
 		DoubleLinkedNode<Integer> node = new DoubleLinkedNode<Integer>(4);
 		list = new DoubleLinkedList<Integer>(node);
 		int expected = 1;
-		int actual = listSize();
+		int actual = list.listSize();
 
 		assertEquals(expected, actual);
 	}
@@ -130,7 +119,7 @@ public class DoubleLinkedListTest {
 		DoubleLinkedNode<Integer> last = new DoubleLinkedNode<Integer>(7);
 		list = new DoubleLinkedList<Integer>(first, last);
 		int expected = 2;
-		int actual = listSize();
+		int actual = list.listSize();
 
 		assertEquals(expected, actual);
 	}
@@ -638,7 +627,48 @@ public class DoubleLinkedListTest {
 		list.remove(aux);
 
 		int expected = 1;
-		int actual = listSize();
+		int actual = list.listSize();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void listSizeWithEmptyList() {
+		DoubleLinkedNode<Integer> node = new DoubleLinkedNode<Integer>(8);
+		list = new DoubleLinkedList<Integer>(node);
+		list.remove(node);
+
+		int expected = 0;
+		int actual = list.listSize();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void listSizeWithOneElement() {
+		DoubleLinkedNode<Integer> node = new DoubleLinkedNode<Integer>(8);
+		list = new DoubleLinkedList<Integer>(node);
+
+		int expected = 1;
+		int actual = list.listSize();
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void listSizeWithNElement() {
+		int[] elem = { 1, 2, 3, 4, 5, 6 };
+		DoubleLinkedNode<Integer> node = new DoubleLinkedNode<Integer>(8);
+		list = new DoubleLinkedList<Integer>(node);
+		DoubleLinkedNode<Integer> nodeToInsert;
+
+		for (int i = 0; i < elem.length; i++) {
+			nodeToInsert = new DoubleLinkedNode<Integer>(elem[i]);
+			list.insertBeginning(nodeToInsert);
+		}
+
+		int expected = 7;
+		int actual = list.listSize();
 
 		assertEquals(expected, actual);
 	}

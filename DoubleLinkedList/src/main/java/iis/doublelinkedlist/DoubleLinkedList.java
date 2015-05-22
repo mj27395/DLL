@@ -134,5 +134,16 @@ public class DoubleLinkedList<E> {
   private void showNode(E nodeData) {
     System.out.print(nodeData + " ");
   }
+  
+  public <E> int listSize() {
+		int cont = 0;
+		DoubleLinkedNode<E> aux = (DoubleLinkedNode<E>) firstNode;
+
+		while (aux != null) {
+			cont++;
+			aux = aux.next;
+		}
+		return cont;
+	}
 
 }
